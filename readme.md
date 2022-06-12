@@ -1,3 +1,5 @@
+Using Python 3.9
+
 Assumptions - 
 
 1. Have not normalized the student table - possible multi-attribute column 'books', assuming only one book is read by a student
