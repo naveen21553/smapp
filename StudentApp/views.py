@@ -29,7 +29,7 @@ def SearchStudents(request):
                     return JsonResponse({500: "Id and name does not match"})
                 
                 requested_data = {
-                    'FullName': f'{student_data.first_name} {student_data.last_name}',
+                    'FullName': full_name,
                     'StudentEmail': student_data.email,
                     'Gender': student_data.gender,
                     'SchoolName': School.objects.get(school_id = student_data.school_id).school_name,
@@ -51,9 +51,9 @@ def getStudent(request, id):
         # student_serialized = StudentSerializer(student_data)
 
         #(Student Full Name, Student Email, Gender, School Name, School Phone, Books read by that student, Total number of book pages read by the student)
-        
+        full_name = '{} {}'.format(student_data.first_name, student_data.last_name)
         requested_data = {
-            'FullName': f'{student_data.first_name} {student_data.last_name}',
+            'FullName': full_name,
             'StudentEmail': student_data.email,
             'Gender': student_data.gender,
             'SchoolName': School.objects.get(school_id = student_data.school_id).school_name,
